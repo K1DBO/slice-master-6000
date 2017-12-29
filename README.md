@@ -1,11 +1,7 @@
-Slice Master 6000
------------------
+# Slice Master 6000
+### version 0.9.0
+### Donald Beaudry (K1DBO)
 
-version 0.9.0
--------------
-
-Donald Beaudry (K1DBO)
-----------------------
 
 Take control of your Flex 6000 series radio's slice receivers with
 Slice Master 6000.
@@ -18,8 +14,7 @@ signal in the CWSkimmer window will cause the associated slice
 receiver to change frequency.  Likewise, changing the frequency of a
 slice receiver will cause the associated CWSkimemr to follow along.
 
-Getting Started
----------------
+# Getting Started
 
 Download the latest release from
 
@@ -39,6 +34,8 @@ config files.  They should be found in
 C:\Users\<your-user-name>\AppData\Local\K1DBO 
 
 and named Slice-A though Slice-H.
+
+# Configuration
 
 Once running Slice Master will present you with an tab for each slice
 receiver supported by your radio.  Each tab gives you an option to
@@ -61,8 +58,8 @@ number of 7300, a Flex 6300 will use ports 7300 and 7301 while a Flex
 6700 will use ports 7300 through 7307.
 
 
-Trouble Shooting
-----------------
+# Trouble Shooting
+
 
 On occasion, CW Skimmer will not start properly and display a
 permissions dialog.  When this happens, you can shut down CW Skimmer
