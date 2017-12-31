@@ -1,5 +1,5 @@
 ### Slice Master 6000
-### version 0.9.0
+### version 0.9.2
 ### Donald Beaudry (K1DBO)
 
 -----------------------------------------------------------------
@@ -63,8 +63,8 @@ number of 7300, a Flex 6300 will use ports 7300 and 7301 while a Flex
 # Trouble Shooting
 
 
-On occasion, CW Skimmer will not start properly and display a
-permissions dialog.  When this happens, you can shut down CW Skimmer
+On occasion, CW Skimmer will not start properly and display an
+"access violation" dialog.  When this happens, you can shut down CW Skimmer
 by selecting the tab for the slice and choosing 'never' as the launch
 option.  Then, try restarting by selecting 'CW only' or 'When active'.
 
