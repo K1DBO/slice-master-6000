@@ -14,7 +14,7 @@ CWSkimmer instance can be launched for any active slice so long as
 it's panadapter assoicated with a DAX IQ channel.  Clicking on a
 signal in the CWSkimmer window will cause the associated slice
 receiver to change frequency.  Likewise, changing the frequency of a
-slice receiver will cause the associated CWSkimemr to follow along.
+slice receiver will cause the associated CWSkimmer to follow along.
 
 # Getting Started
 
