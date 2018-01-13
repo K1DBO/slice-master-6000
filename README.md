@@ -1,5 +1,5 @@
 # Slice Master 6000
-### version 0.9.5
+### version 0.9.6
 ### Donald Beaudry (K1DBO)
 
 ------------------------------------------
@@ -8,9 +8,9 @@ Take control of your Flex 6000 series radio's slice receivers with
 Slice Master 6000.
 
 Slice Master 6000's primary focus is on dynamically configuring and
-launching CW Skimmer to work with the slice receivers in your radio.  A
-CW Skimmer instance can be launched for any active slice so long as
-it's panadapter assoicated with a DAX IQ channel.  Clicking on a
+launching CW Skimmer to work with the slice receivers in your radio.
+A CW Skimmer instance can be launched for any active slice so long as
+it's panadapter is assoicated with a DAX IQ channel.  Clicking on a
 signal in the CW Skimmer window will cause the associated slice
 receiver to change frequency.  Likewise, changing the frequency of a
 slice receiver will cause the associated CW Skimmer to follow along.
@@ -21,13 +21,13 @@ Download the latest release from
 
 https://github.com/K1DBO/slice-master-6000/releases 
 
-and open the zip file.  The executable is all you'll need and doesnt
+and open the zip file.  The executable is all you'll need and doesn't
 require a formal installation.  You can run it from anywhere.  Windows
 is likely to ask you to allow a firewall exception so Slice Master can
-estabilish network connection with CWSkimmer and with your radio.
+estabilish a network connection with CW Skimmer and with your radio.
 
-It is important to have already installed and configured
-CWSkimmer. When Slice Master needs to create a new CWSkimmer instance
+It is important to have already installed and configured CW
+Skimmer. When Slice Master needs to create a new CW Skimmer instance
 it will start with the default configuration.  If something goes wrong
 with the configuration process, you can remove the newly created
 config files.  They should be found in
@@ -48,9 +48,16 @@ The Launch tab lets you decide when/if a CW Skimmer will be launched
 for each of the slices.  If set to 'CW only', anytime the slice is
 switched into CW mode, a skimmer will be configured for the slice and
 launched.  If set to 'When active', this will happen any time the
-slice is in use.  The 'On Click' options are useful for operating
+slice is in use.  The 'On Click' options are useful when operating
 split and control what happens when you click on a signal in CW
-Skimmer.  'On Click' can be set to TX, active, or both.
+Skimmer.  'On Click' can be set to TX, active, or both.  
+
+You can also choose to use XIT/RIT when clicking close to the current
+signal.  This will let you "listen around" while keeping your TX
+frequency fixed or "xmit around" while keeping your RX frequency
+fixed.  When either option is selected and CW Skimmer is clicked
+within 500hz of the slice frequency, the XIT or RIT offset will be
+adjusted.  Click outside of this range to reset XIT/RIT to zero.
 
 
 ## Sync
@@ -78,10 +85,15 @@ recentered under the slice frequency.
 
 The Fade tab gives you a convenient place to control the audio
 settings of all your slices.  The vertical slider will adjust the
-audio gain, will the knob adjusts the pan.  The button between them
-show the current audio gain and can be activated to reset that to 50.
+audio gain, while the knob adjusts the pan.  The button between them
+shows the current audio gain and can be activated to reset that to 50.
 The 'M' button will mute the slice while the 'S', solo, button mute
 all other slices.
+
+If you hold the shift key while clicking on the gain reset button,
+instead of returning the gain to the preset value of 50, the preset
+value will be changed.  So the next time you activate the button the
+gain will return to this value.
 
 
 ## Settings
@@ -96,7 +108,7 @@ port' itself will be used by the aggregation server while the CW
 Skimmer instance associated with slice A will use the first port
 number after that. Each slice after A will use the next higher port
 number.  With the default port number of 7300, a Flex 6300 will use
-ports 7300 and 7302 while a Flex 6700 will use ports 7300 through
+ports 7300 through 7302 while a Flex 6700 will use ports 7300 through
 7308.  
 
 Enable the aggregation server if you would like a logging program or
@@ -110,6 +122,11 @@ helpful, when using two skimmers on the same band but with different
 antennas.  If, instead, you're passing the spots to an upstream
 cluster node, you might consider leaving this option disabled.
 
+The Fader section of the settings tab lets you control the visibilty
+of the master volume control and the headphone volume control.  Note
+that when operating with "REMOTE" selected in SmartSDR, the master
+volume control is does not function.  This is a limitation of SmartSDR.
+
 
 # Trouble Shooting
 
@@ -118,9 +135,15 @@ violation" dialog.  When this happens, you can shut down CW Skimmer by
 selecting the tab for the slice and choosing 'never' as the launch
 option.  Then, try restarting by selecting 'CW only' or 'When active'.
 
-If a CW instance doesnt appear when you think it should, verify that
-the slice receiver is active (visible somewhere in SmartSDR) and set
-to CW mode if 'CW only' was selected as the launch option.  Also make
-sure that the panadapter containing the slice has a DAX IQ channel
-selected.
+If a CW Skimmer instance doesnt appear when you think it should,
+verify that the slice receiver is active (visible somewhere in
+SmartSDR) and set to CW mode if 'CW only' was selected as the launch
+option.  Also make sure that the panadapter containing the slice has a
+DAX IQ channel selected.  When attempting to restart CW Skimmer, as
+described above, keep an eye on Slice Master's status line.  Many
+start up errors are reported there.
 
+Sometimes you really do need to reboot everything.  If everything
+seems to be working correctly but CW Skimmer launches with the wrong
+'Signal I/O Device' in it's settings, first try restarting DAX.  But
+if that doesnt fix it, reboot.  
