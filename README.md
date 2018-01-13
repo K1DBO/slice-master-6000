@@ -2,7 +2,7 @@
 ### version 0.9.6
 ### Donald Beaudry (K1DBO)
 
-------------------------------------------
+------------------------------------------ 
 
 Take control of your Flex 6000 series radio's slice receivers with
 Slice Master 6000.
