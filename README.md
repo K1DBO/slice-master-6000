@@ -64,6 +64,8 @@ adjusted.  Click outside of this range to reset XIT/RIT to zero.
 
 ## Sync
 
+![Sync](screenshots/sync-0-9-5.PNG)
+
 The Sync tab lets you choose how slices interact with each other.
 Each slice supports a "follow" option.  This option is used to make
 the frequency of one slice follow the frequency of another slice.  So,
@@ -85,6 +87,8 @@ recentered under the slice frequency.
 
 ## Fade
 
+![Fade](screenshots/fade.PNG)
+
 The Fade tab gives you a convenient place to control the audio
 settings of all your slices.  The vertical slider will adjust the
 audio gain, while the knob adjusts the pan.  The button between them
@@ -99,6 +103,8 @@ gain will return to this value.
 
 
 ## Settings
+
+![Settings](screenshots/launch-0-9-6.PNG)
 
 The Settings tab lets you control the less slice specific aspects of
 Slice Master.  
