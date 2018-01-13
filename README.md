@@ -104,7 +104,7 @@ gain will return to this value.
 
 ## Settings
 
-![Settings](screenshots/launch-0-9-6.PNG)
+![Settings](screenshots/settings-0-9-6.PNG)
 
 The Settings tab lets you control the less slice specific aspects of
 Slice Master.  
