@@ -44,7 +44,7 @@ to control various aspects of your slices.
 
 ## Launch
 
-![Launch](screenshots/launch-0-9-6.png)
+![Launch](screenshots/launch-0-9-6.PNG)
 
 The Launch tab lets you decide when/if a CW Skimmer will be launched
 for each of the slices.  If set to 'CW only', anytime the slice is
