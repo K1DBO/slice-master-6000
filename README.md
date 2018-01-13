@@ -87,7 +87,7 @@ recentered under the slice frequency.
 
 ## Fade
 
-![Fade](screenshots/fade.PNG)
+![Fade](screenshots/fade-0-9-6.PNG)
 
 The Fade tab gives you a convenient place to control the audio
 settings of all your slices.  The vertical slider will adjust the
