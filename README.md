@@ -1,5 +1,5 @@
 # Slice Master 6000
-### version 0.9.6
+### version 0.9.7
 ### Donald Beaudry (K1DBO)
 
 ------------------------------------------ 
@@ -64,7 +64,7 @@ adjusted.  Click outside of this range to reset XIT/RIT to zero.
 
 ## Sync
 
-![Sync](screenshots/sync-0-9-5.PNG)
+![Sync](screenshots/sync-0-9-7.PNG)
 
 The Sync tab lets you choose how slices interact with each other.
 Each slice supports a "follow" option.  This option is used to make
@@ -80,6 +80,11 @@ exactly, you can specify a value in the offset field.
 Selecting 'Panadapter Center' will cause the center frequency of a
 slice's panadapter to change whenever the center frequency of the
 followed slice's panadapter changes.
+
+'Panadapter zoom' will cause the display bandwidth of the slice's
+panadapter to follow changes to the displayed bandwidth of the
+followed slice.  A scaling factor can be applied to by setting the
+factor option.
 
 Selecting 'Keep centered' will cause the slice's panadapter to be
 recentered under the slice frequency.
@@ -155,3 +160,6 @@ Sometimes you really do need to reboot everything.  If everything
 seems to be working correctly but CW Skimmer launches with the wrong
 'Signal I/O Device' in it's settings, first try restarting DAX.  But
 if that doesnt fix it, reboot.  
+
+
+
