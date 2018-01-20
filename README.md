@@ -149,7 +149,7 @@ helpful, when using two skimmers on the same band but with different
 antennas.  If, instead, you're passing the spots to an upstream
 cluster node, you might consider leaving this option disabled.
 
-N1MM Logger+ usesr can broadcast their multipliers to Slice Master.
+N1MM Logger+ users can broadcast their multipliers to Slice Master.
 Slice Master's default is to listen on N1MM's default broadcast port
 12060. You'll just need to enable the broadcasts in the N1MM Logger+
 Configurer dialog.
