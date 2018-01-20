@@ -4,8 +4,7 @@
 
 ------------------------------------------ 
 
-#### Take control of your Flex 6000 series radio's slice receivers with
-#### Slice Master 6000.
+#### Take control of your Flex 6000 series radio's slice receivers with Slice Master 6000.
 
 # Features
 #### Simplifies CW Skimmer configuration
