@@ -1,11 +1,19 @@
 # Slice Master 6000
-### version 0.9.7
+### version 0.9.8
 ### Donald Beaudry (K1DBO)
 
 ------------------------------------------ 
 
 Take control of your Flex 6000 series radio's slice receivers with
 Slice Master 6000.
+
+# Features
+### Simplifies CW Skimmer configuration
+### Colors CW Skimmer spots with N1MM Logger+ multipliers
+### Launches CW Skimmer automatically depending on mode
+### Aggregates CW Skimmer spots into a single telnet connection
+### Synchronizes slice and panadapter attributes between slices
+### Provides audio fader panel with solo, mute, and presets
 
 Slice Master 6000's primary focus is on dynamically configuring and
 launching CW Skimmer to work with the slice receivers in your radio.
@@ -14,6 +22,11 @@ it's panadapter is assoicated with a DAX IQ channel.  Clicking on a
 signal in the CW Skimmer window will cause the associated slice
 receiver to change frequency.  Likewise, changing the frequency of a
 slice receiver will cause the associated CW Skimmer to follow along.
+
+Slice Master 6000 is not just for CW.  It's powerful slice and
+panadapter syncronziation features, and it's convienient audio fader
+panel make it useful in any mode.
+
 
 # Getting Started
 
@@ -109,25 +122,26 @@ gain will return to this value.
 
 ## Settings
 
-![Settings](screenshots/settings-0-9-6.PNG)
+![Settings](screenshots/settings-0-9-8.PNG)
 
 The Settings tab lets you control the less slice specific aspects of
 Slice Master.  
 
 When a CW Skimmer instance is launched, it needs to use a network
-(telnet) port to communuicate with Slice Master.  The 'Start port'
-option specifies where to start allocating these ports.  The 'Start
+(telnet) port to communicate with Slice Master.  The 'Telnet port'
+option specifies where to start allocating these ports.  The 'Telnet
 port' itself will be used by the aggregation server while the CW
 Skimmer instance associated with slice A will use the first port
 number after that. Each slice after A will use the next higher port
 number.  With the default port number of 7300, a Flex 6300 will use
 ports 7300 through 7302 while a Flex 6700 will use ports 7300 through
-7308.  
+7308.
 
 Enable the aggregation server if you would like a logging program or
 cluster telnet client to receive the spots found by CW Skimmer.  Your
-logging program or telnet client can connect to the aggregation server
-on the 'Start port'.
+logging program or telnet client should connect to the aggregation
+server on the 'Start port'.  This eliminates the need to restart or
+reconfigure your telnet client each time a CW Skimmer starts or stops.
 
 If 'Append slice label' is checked the slice label will be appended to
 the callsign that CW Skimmer uses when posting the spot.  This can be
