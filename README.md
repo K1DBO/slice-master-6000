@@ -4,16 +4,16 @@
 
 ------------------------------------------ 
 
-Take control of your Flex 6000 series radio's slice receivers with
-Slice Master 6000.
+#### Take control of your Flex 6000 series radio's slice receivers with
+#### Slice Master 6000.
 
 # Features
-### Simplifies CW Skimmer configuration
-### Colors CW Skimmer spots with N1MM Logger+ multipliers
-### Launches CW Skimmer automatically depending on mode
-### Aggregates CW Skimmer spots into a single telnet connection
-### Synchronizes slice and panadapter attributes between slices
-### Provides audio fader panel with solo, mute, and presets
+#### Simplifies CW Skimmer configuration
+#### Colors CW Skimmer spots with N1MM Logger+ multipliers
+#### Launches CW Skimmer automatically depending on mode
+#### Aggregates CW Skimmer spots into a single telnet connection
+#### Synchronizes slice and panadapter attributes between slices
+#### Provides audio fader panel with solo, mute, and presets
 
 Slice Master 6000's primary focus is on dynamically configuring and
 launching CW Skimmer to work with the slice receivers in your radio.
