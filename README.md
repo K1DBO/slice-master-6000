@@ -4,7 +4,8 @@
 
 ------------------------------------------ 
 
-#### Take control of your Flex 6000 series radio's slice receivers with Slice Master 6000.
+#### Take control of your Flex 6000 series radio's slice receivers with
+#### Slice Master 6000.
 
 # Features
 #### Simplifies CW Skimmer configuration
@@ -147,6 +148,11 @@ the callsign that CW Skimmer uses when posting the spot.  This can be
 helpful, when using two skimmers on the same band but with different
 antennas.  If, instead, you're passing the spots to an upstream
 cluster node, you might consider leaving this option disabled.
+
+N1MM Logger+ usesr can broadcast their multipliers to Slice Master.
+Slice Master's default is to listen on N1MM's default broadcast port
+12060. You'll just need to enable the broadcasts in the N1MM Logger+
+Configurer dialog.
 
 The Fader section of the settings tab lets you control the visibilty
 of the master volume control and the headphone volume control.  Note
