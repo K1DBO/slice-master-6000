@@ -1,5 +1,5 @@
 # Slice Master 6000
-### version 0.9.8
+### version 0.9.9
 ### Donald Beaudry (K1DBO)
 
 ------------------------------------------ 
