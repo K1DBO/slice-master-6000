@@ -17,7 +17,7 @@
 Slice Master 6000's primary focus is on dynamically configuring and
 launching CW Skimmer to work with the slice receivers in your radio.
 A CW Skimmer instance can be launched for any active slice so long as
-it's panadapter is assoicated with a DAX IQ channel.  Clicking on a
+its panadapter is assoicated with a DAX IQ channel.  Clicking on a
 signal in the CW Skimmer window will cause the associated slice
 receiver to change frequency.  Likewise, changing the frequency of a
 slice receiver will cause the associated CW Skimmer to follow along.
