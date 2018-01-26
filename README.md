@@ -1,5 +1,5 @@
 # Slice Master 6000
-### version 0.9.9
+### version 0.9.10
 ### Donald Beaudry (K1DBO)
 
 ------------------------------------------ 
@@ -12,7 +12,7 @@
 #### Launches CW Skimmer automatically depending on mode
 #### Aggregates CW Skimmer spots into a single telnet connection
 #### Synchronizes slice and panadapter attributes between slices
-#### Provides audio fader panel with solo, mute, and presets
+#### Provides audio mixer panel with solo, mute, and presets
 
 Slice Master 6000's primary focus is on dynamically configuring and
 launching CW Skimmer to work with the slice receivers in your radio.
@@ -23,7 +23,7 @@ receiver to change frequency.  Likewise, changing the frequency of a
 slice receiver will cause the associated CW Skimmer to follow along.
 
 Slice Master 6000 is not just for CW.  It's powerful slice and
-panadapter syncronziation features, and it's convienient audio fader
+panadapter syncronziation features, and it's convienient audio mixer
 panel make it useful in any mode.
 
 
@@ -76,7 +76,7 @@ adjusted.  Click outside of this range to reset XIT/RIT to zero.
 
 ## Sync
 
-![Sync](screenshots/sync-0-9-7.PNG)
+![Sync](screenshots/sync-0-9-10.PNG)
 
 The Sync tab lets you choose how slices interact with each other.
 Each slice supports a "follow" option.  This option is used to make
@@ -98,43 +98,57 @@ panadapter to follow changes to the displayed bandwidth of the
 followed slice.  A scaling factor can be applied to by setting the
 factor option.
 
+'Panadapter scale' will cause the vertical scale of slice's panadapter
+to follow the vertical scale of the followed slice.
+
 Selecting 'Keep centered' will cause the slice's panadapter to be
 recentered under the slice frequency.
 
 
-## Fade
+## Mix
 
-![Fade](screenshots/fade-0-9-6a.PNG)
+![Mix](screenshots/mix-0-9-10b.PNG)
 
-The Fade tab gives you a convenient place to control the audio
-settings of all your slices.  The vertical slider will adjust the
-audio gain, while the knob adjusts the pan.  The button between them
-shows the current audio gain and can be activated to reset that to 50.
-The 'M' button will mute the slice while the 'S', solo, button mute
-all other slices.
+The Mix tab gives you a convenient place to control the audio settings
+of all your slices.  The vertical slider will adjust the audio gain,
+while the knob adjusts the pan.  The button between them shows the
+current audio gain and can be activated to reset the gain and pan to a
+preset value.  The 'M' button will mute the slice while the 'S', solo,
+button mute all other slices.
 
-If you hold the shift key while clicking on the gain reset button,
-instead of returning the gain to the preset value of 50, the preset
-value will be changed.  So the next time you activate the button the
-gain will return to this value.
+If you hold the shift key while clicking on the gain preset button,
+instead of returning the gain to the preset value, the preset values
+will be changed to the current values.  So the next time you activate
+the button, the gain and pan will be restored to the current values.
 
+The Mix section of the settings page allows the mixer to be
+customized.  If you'd like to hide inactive slices or enable AGC
+adjustments, select the corresponding options there.
+
+![Mix](screenshots/mix-agc-0-9-10b.PNG)
+
+With AGC controls enabled each slice will have two sliders.  One for
+the audio gain and another for the AGC threshold.  A button for the
+AGC mode is also provided.  The AGC preset button works like the
+preset button for the audio gain except it affects only the AGC
+threshold and AGC mode.
 
 ## Settings
 
-![Settings](screenshots/settings-0-9-8.PNG)
-
 The Settings tab lets you control the less slice specific aspects of
 Slice Master.  
+
+![Settings](screenshots/settings-0-9-10.PNG)
 
 When a CW Skimmer instance is launched, it needs to use a network
 (telnet) port to communicate with Slice Master.  The 'Telnet port'
 option specifies where to start allocating these ports.  The 'Telnet
 port' itself will be used by the aggregation server while the CW
 Skimmer instance associated with slice A will use the first port
-number after that. Each slice after A will use the next higher port
-number.  With the default port number of 7300, a Flex 6300 will use
-ports 7300 through 7302 while a Flex 6700 will use ports 7300 through
-7308.
+number after that. Each slice after slice A will use the next higher
+port number.  With the default port number of 7300, a Flex 6300 will
+use ports 7300 through 7302 while a Flex 6700 will use ports 7300
+through 7308.
 
 Enable the aggregation server if you would like a logging program or
 cluster telnet client to receive the spots found by CW Skimmer.  Your
@@ -153,10 +167,12 @@ Slice Master's default is to listen on N1MM's default broadcast port
 12060. You'll just need to enable the broadcasts in the N1MM Logger+
 Configurer dialog.
 
-The Fader section of the settings tab lets you control the visibilty
+The Mixer section of the settings tab lets you control the visibilty
 of the master volume control and the headphone volume control.  Note
 that when operating with "REMOTE" selected in SmartSDR, the master
-volume control is does not function.  This is a limitation of SmartSDR.
+volume control is does not function.  This is a limitation of
+SmartSDR. Controls for inactive slices can be hidden and additional
+controls adjusting AGC parameters and be enabled.
 
 
 # Trouble Shooting
