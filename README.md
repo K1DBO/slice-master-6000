@@ -44,7 +44,7 @@ it will start with the default configuration.  If something goes wrong
 with the configuration process, you can remove the newly created
 config files.  They should be found in
 
-C:\Users\<your-user-name>\AppData\Local\K1DBO 
+C:\Users\\<your-user-name>\AppData\Local\K1DBO 
 
 and named Slice-A though Slice-H.
 
