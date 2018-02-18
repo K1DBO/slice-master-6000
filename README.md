@@ -1,5 +1,5 @@
 # Slice Master 6000
-### version 0.9.16
+### version 0.9.17
 ### Donald Beaudry (K1DBO)
 
 ------------------------------------------ 
@@ -14,6 +14,7 @@
 #### Aggregates CW Skimmer and GRITTY spots into a single telnet connection
 #### Synchronizes slice and panadapter attributes between slices
 #### Provides audio mixer panel with solo, mute, and presets
+#### Supports HRD TCP client connections
 
 Slice Master 6000's primary focus is on dynamically configuring and
 launching CW Skimmer to work with the slice receivers in your radio.
@@ -24,8 +25,10 @@ receiver to change frequency.  Likewise, changing the frequency of a
 slice receiver will cause the associated CW Skimmer to follow along.
 
 Slice Master 6000 is not just for CW.  It's powerful slice and
-panadapter syncronziation features, and it's convienient audio mixer
-panel make it useful in any mode.
+panadapter synchronization features, and it's convienient audio mixer
+panel make it useful in any mode.  It's HRD TCP listener provides Flex
+specific functionality to HRD clients that cannot be found anywhere
+else.
 
 
 # Getting Started
@@ -80,7 +83,7 @@ support is available.
 
 ## Sync
 
-![Sync](screenshots/sync-0-9-10.PNG)
+![Sync](screenshots/sync-0-9-17.PNG)
 
 The Sync tab lets you choose how slices interact with each other.
 Each slice supports a "follow" option.  This option is used to make
@@ -107,6 +110,13 @@ to follow the vertical scale of the followed slice.
 
 Selecting 'Keep centered' will cause the slice's panadapter to be
 recentered under the slice frequency.
+
+Ham Radio Deluxe defines a TCP protocol for passing radio control
+information to clients like DM780 or HRD Logbook.  Check the enable
+box in the HRD TCP Listener group and there's no need to run the Rig
+Control component of Ham Radio Deluxe.  Instead, clients can connect
+to any slice though Slice Master 6000's HRD TCP Listener.  A seperate
+listener is provided for each slice.
 
 
 ## Mix
@@ -142,7 +152,7 @@ threshold and AGC mode.
 The Settings tab lets you control the less slice specific aspects of
 Slice Master.  
 
-![Settings](screenshots/settings-0-9-16.PNG)
+![Settings](screenshots/settings-0-9-17.PNG)
 
 Enable the aggregation server if you would like a logging program or
 cluster telnet client to receive the spots found by CW Skimmer.  Your
