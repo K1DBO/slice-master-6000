@@ -1,5 +1,5 @@
 # Slice Master 6000
-### version 0.9.17
+### version 0.9.18
 ### Donald Beaudry (K1DBO)
 
 ------------------------------------------ 
@@ -7,28 +7,31 @@
 #### Take control of your Flex 6000 series radio's slice receivers with Slice Master 6000.
 
 # Features
-#### Simplifies CW Skimmer configuration
+#### Configures and launches CW Skimmer per slice automatically depending on mode
 #### Colors CW Skimmer spots with N1MM Logger+ multipliers
-#### Launches CW Skimmer automatically depending on mode
-#### Launches GRITTY automatically depending on mode
+#### Configures and launches GRITTY per slice automatically depending on mode
 #### Aggregates CW Skimmer and GRITTY spots into a single telnet connection
+#### Configures and launches DM780 per slice automatically depending on mode
+#### Supports per slice and TX following HRD TCP client connections
 #### Synchronizes slice and panadapter attributes between slices
 #### Provides audio mixer panel with solo, mute, and presets
-#### Supports HRD TCP client connections
 
 Slice Master 6000's primary focus is on dynamically configuring and
-launching CW Skimmer to work with the slice receivers in your radio.
-A CW Skimmer instance can be launched for any active slice so long as
-its panadapter is assoicated with a DAX IQ channel.  Clicking on a
-signal in the CW Skimmer window will cause the associated slice
-receiver to change frequency.  Likewise, changing the frequency of a
-slice receiver will cause the associated CW Skimmer to follow along.
+launching other third party programs to work with the slice receivers
+in your radio.  A program instance can be launched for any active
+slice so long as its panadapter is assoicated with the necessary
+resources.  Two way communication between Slice Master and the
+programs it launches is maintained.  Clicking on a signal in the CW
+Skimmer window, for example, will cause the associated slice receiver
+to change frequency.  Likewise, changing the frequency of a slice
+receiver will cause the associated CW Skimmer to follow along.
 
-Slice Master 6000 is not just for CW.  It's powerful slice and
-panadapter synchronization features, and it's convienient audio mixer
-panel make it useful in any mode.  It's HRD TCP listener provides Flex
-specific functionality to HRD clients that cannot be found anywhere
-else.
+Slice Master 6000 is not just for managing other third party programs.
+It's powerful slice and panadapter synchronization features, and it's
+convienient audio mixer panel make it useful when used alone.  Even
+when Slice Master does not control the third party program, it's HRD
+TCP listener provides Flex specific functionality to HRD clients that
+cannot be found anywhere else.
 
 
 # Getting Started
@@ -60,15 +63,15 @@ to control various aspects of your slices.
 
 ## Launch
 
-![Launch](screenshots/launch-0-9-16.PNG)
+![Launch](screenshots/launch-0-9-18.PNG)
 
 The Launch tab lets you decide when/if a CW Skimmer will be launched
 for each of the slices.  If set to 'CW only', anytime the slice is
-switched into CW mode, a skimmer will be configured for the slice and
-launched.  If set to 'When active', this will happen any time the
-slice is in use.  The 'On Click' options are useful when operating
-split and control what happens when you click on a signal in CW
-Skimmer.  'On Click' can be set to TX, active, or both.  
+switched into CW mode, a CW Skimmer instance will be configured for
+the slice and launched.  If set to 'When active', this will happen any
+time the slice is in use.  The 'On Click' options are useful when
+operating split and control what happens when you click on a signal in
+CW Skimmer.  'On Click' can be set to TX, active, or both.
 
 You can also choose to use XIT/RIT when clicking close to the current
 signal.  This will let you "listen around" while keeping your TX
@@ -79,6 +82,15 @@ adjusted.  Click outside of this range to reset XIT/RIT to zero.
 
 Similar launch features are available for GRITTY as well.  XIT/RIT
 support is available.
+
+Like the others, DM780 can be launched automatically depending on mode
+or whenever a slice is active.  If you are currently using DM780
+identities to manage different configurations the 'Identity' option
+will be familar.  If not, you might consider learning about the
+feature. In short, a DM780 identity will remember your screen layout,
+radio layout, and operating mode.  Having a seperate one for each or
+similar digimodes will minimize the amount of manual reconfiguration
+you'll need to do each time Slice Master launches DM780 for you.
 
 
 ## Sync
@@ -116,7 +128,10 @@ information to clients like DM780 or HRD Logbook.  Check the enable
 box in the HRD TCP Listener group and there's no need to run the Rig
 Control component of Ham Radio Deluxe.  Instead, clients can connect
 to any slice though Slice Master 6000's HRD TCP Listener.  A seperate
-listener is provided for each slice.
+listener is provided for each slice.  On the settings tab you'll also
+find an HRD TCP Listener group to enable a listener that follows the
+TX slice.
+
 
 
 ## Mix
@@ -152,7 +167,7 @@ threshold and AGC mode.
 The Settings tab lets you control the less slice specific aspects of
 Slice Master.  
 
-![Settings](screenshots/settings-0-9-17.PNG)
+![Settings](screenshots/settings-0-9-18.PNG)
 
 Enable the aggregation server if you would like a logging program or
 cluster telnet client to receive the spots found by CW Skimmer.  Your
@@ -177,6 +192,12 @@ Slice Master's default is to listen on N1MM's default broadcast port
 Configurer dialog.  See the N1MM Logger+ documentation for more
 information.
 
+The HRD TCP TX Listener can be enable to allow programs like HRD
+Logbook to follow and control the TX slice.  Following the TX slice
+for digimode operation doesnt work well because of the lack of DAX
+audio coordination.  For HRD TCP listener suport of digimodes, take a
+look at the options under the Launch tab.
+
 The Mixer section of the settings tab lets you control the visibilty
 of the master volume control and the headphone volume control.  Note
 that when operating with "REMOTE" selected in SmartSDR, the master
@@ -200,10 +221,14 @@ DAX IQ channel selected.  When attempting to restart CW Skimmer, as
 described above, keep an eye on Slice Master's status line.  Many
 start up errors are reported there.
 
+If Slice Master dies an unexpected death it might leave running
+programs that it launched.  If this happens, it might have trouble
+stating again.  Killing these programs either from their menus or from
+the task manager can often help.  This can even apply to programs that
+have launched other programs.  OmniRig is sometimes the culprit.
+
 Sometimes you really do need to reboot everything.  If everything
 seems to be working correctly but CW Skimmer launches with the wrong
 'Signal I/O Device' in it's settings, first try restarting DAX.  But
 if that doesnt fix it, reboot.  
-
-
 
