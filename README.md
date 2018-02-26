@@ -1,5 +1,5 @@
 # Slice Master 6000
-### version 0.9.18
+### version 0.9.19
 ### Donald Beaudry (K1DBO)
 
 ------------------------------------------ 
@@ -136,14 +136,14 @@ TX slice.
 
 ## Mix
 
-![Mix](screenshots/mix-0-9-10b.PNG)
+![Mix](screenshots/mix-0-9-19.PNG)
 
-The Mix tab gives you a convenient place to control the audio settings
-of all your slices.  The vertical slider will adjust the audio gain,
-while the knob adjusts the pan.  The button between them shows the
-current audio gain and can be activated to reset the gain and pan to a
-preset value.  The 'M' button will mute the slice while the 'S', solo,
-button mute all other slices.
+The Mix tab gives you a convenient place to control the audio output
+settings of all your slices.  The vertical slider will adjust the
+audio gain, while the knob adjusts the pan.  The button between them
+shows the current audio gain and can be activated to reset the gain
+and pan to a preset value.  The 'M' button will mute the slice while
+the 'S', solo, button mute all other slices.
 
 If you hold the shift key while clicking on the gain preset button,
 instead of returning the gain to the preset value, the preset values
@@ -167,7 +167,7 @@ threshold and AGC mode.
 The Settings tab lets you control the less slice specific aspects of
 Slice Master.  
 
-![Settings](screenshots/settings-0-9-18.PNG)
+![Settings](screenshots/settings-0-9-19.PNG)
 
 Enable the aggregation server if you would like a logging program or
 cluster telnet client to receive the spots found by CW Skimmer.  Your
@@ -201,7 +201,7 @@ look at the options under the Launch tab.
 The Mixer section of the settings tab lets you control the visibilty
 of the master volume control and the headphone volume control.  Note
 that when operating with "REMOTE" selected in SmartSDR, the master
-volume control is does not function.  This is a limitation of
+volume control does not function.  This is a limitation of
 SmartSDR. Controls for inactive slices can be hidden and additional
 controls adjusting AGC parameters and be enabled.
 
