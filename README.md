@@ -1,5 +1,5 @@
 # Slice Master 6000
-### version 0.9.19
+### version 0.9.20
 ### Donald Beaudry (K1DBO)
 
 ------------------------------------------ 
@@ -12,9 +12,11 @@
 #### Configures and launches GRITTY per slice automatically depending on mode
 #### Aggregates CW Skimmer and GRITTY spots into a single telnet connection
 #### Configures and launches DM780 per slice automatically depending on mode
+#### Configures and launches WSJT-X per slice automatically depending on mode
 #### Supports per slice and TX following HRD TCP client connections
 #### Synchronizes slice and panadapter attributes between slices
 #### Provides audio mixer panel with solo, mute, and presets
+
 
 Slice Master 6000's primary focus is on dynamically configuring and
 launching other third party programs to work with the slice receivers
@@ -63,7 +65,7 @@ to control various aspects of your slices.
 
 ## Launch
 
-![Launch](screenshots/launch-0-9-18a.PNG)
+![Launch](screenshots/launch-0-9-20.PNG)
 
 The Launch tab lets you decide when/if a CW Skimmer will be launched
 for each of the slices.  If set to 'CW only', anytime the slice is
@@ -91,6 +93,13 @@ feature. In short, a DM780 identity will remember your screen layout,
 radio layout, and operating mode.  Having a seperate one for each or
 similar digimodes will minimize the amount of manual reconfiguration
 you'll need to do each time Slice Master launches DM780 for you.
+
+Inorder to run multiple instances WSJT-X, it's necessary to choose a
+different configuration for each instance.  By default, each slice has
+it's own configuration.  But, creating new configurations is easy
+enough.  Select the <new> configuation from the drop down menu and
+change the name to anything you like.  Be sure to press the enter key
+when you are done naming your new configuration.
 
 
 ## Sync
@@ -136,7 +145,7 @@ TX slice.
 
 ## Mix
 
-![Mix](screenshots/mix-0-9-19.PNG)
+![Mix](screenshots/mix-0-9-20.PNG)
 
 The Mix tab gives you a convenient place to control the audio output
 settings of all your slices.  The vertical slider will adjust the
@@ -154,7 +163,7 @@ The Mix section of the settings page allows the mixer to be
 customized.  If you'd like to hide inactive slices or enable AGC
 adjustments, select the corresponding options there.
 
-![Mix](screenshots/mix-agc-0-9-10b.PNG)
+![Mix](screenshots/mix-agc-0-9-20.PNG)
 
 With AGC controls enabled each slice will have two sliders.  One for
 the audio gain and another for the AGC threshold.  A button for the
