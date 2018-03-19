@@ -1,5 +1,5 @@
 # Slice Master 6000
-### version 0.9.20
+### version 0.9.21
 ### Donald Beaudry (K1DBO)
 
 ------------------------------------------ 
@@ -7,15 +7,14 @@
 #### Take control of your Flex 6000 series radio's slice receivers with Slice Master 6000.
 
 # Features
-#### Configures and launches CW Skimmer per slice automatically depending on mode
+#### Automatically configures and launches multiple third party applications
+##### CW Skimmer, GRITTY, DM780, WSJT-X,flDigi
 #### Colors CW Skimmer spots with N1MM Logger+ multipliers
-#### Configures and launches GRITTY per slice automatically depending on mode
 #### Aggregates CW Skimmer and GRITTY spots into a single telnet connection
-#### Configures and launches DM780 per slice automatically depending on mode
-#### Configures and launches WSJT-X per slice automatically depending on mode
 #### Supports per slice and TX following HRD TCP client connections
+#### Supports per slice and TX following CAT over TCP client connections
 #### Synchronizes slice and panadapter attributes between slices
-#### Provides audio mixer panel with solo, mute, and presets
+#### Provides audio mixer panel with solo, mute, and level presets
 
 
 Slice Master 6000's primary focus is on dynamically configuring and
@@ -29,7 +28,7 @@ to change frequency.  Likewise, changing the frequency of a slice
 receiver will cause the associated CW Skimmer to follow along.
 
 Slice Master 6000 is not just for managing other third party programs.
-It's powerful slice and panadapter synchronization features, and it's
+Its powerful slice and panadapter synchronization features, and its
 convienient audio mixer panel make it useful when used alone.  Even
 when Slice Master does not control the third party program, it's HRD
 TCP listener provides Flex specific functionality to HRD clients that
@@ -65,7 +64,7 @@ to control various aspects of your slices.
 
 ## Launch
 
-![Launch](screenshots/launch-0-9-20.PNG)
+![Launch](screenshots/launch-0-9-21.PNG)
 
 The Launch tab lets you decide when/if a CW Skimmer will be launched
 for each of the slices.  If set to 'CW only', anytime the slice is
@@ -94,17 +93,20 @@ radio layout, and operating mode.  Having a seperate one for each or
 similar digimodes will minimize the amount of manual reconfiguration
 you'll need to do each time Slice Master launches DM780 for you.
 
-Inorder to run multiple instances WSJT-X, it's necessary to choose a
+In order to run multiple instances of WSJT-X, it's necessary to choose a
 different configuration for each instance.  By default, each slice has
 it's own configuration.  But, creating new configurations is easy
 enough.  Select the <new> configuation from the drop down menu and
 change the name to anything you like.  Be sure to press the enter key
 when you are done naming your new configuration.
 
+Like WSJT-X, Fldigi supports multiple configurations.  The controls
+operate in a similar manner.
+
 
 ## Sync
 
-![Sync](screenshots/sync-0-9-17.PNG)
+![Sync](screenshots/sync-0-9-21.PNG)
 
 The Sync tab lets you choose how slices interact with each other.
 Each slice supports a "follow" option.  This option is used to make
@@ -141,6 +143,17 @@ listener is provided for each slice.  On the settings tab you'll also
 find an HRD TCP Listener group to enable a listener that follows the
 TX slice.
 
+The TCP CAT Listener is similar to SmartSDR CAT's TCP support. It is
+known to work with hamlib's Flex 6xxx definition. The 'On MOX' setting
+gives you control over how the slice will act when the remote requests
+that the transmitter be engaged.  When working with digimode programs
+it's important to insure that the DAX function is enabled.  Setting
+this option to 'Toggle DAX On' will ensure DAX is enabled when needed
+but not disrupt the state of other slices.  Likewise, choosing 'Toggle
+TX Slice' will cause the slice to be the active TX slice only when
+transmit is requested.  Once the transmission ends, TX will return to
+its previous slice.
+
 
 
 ## Mix
@@ -176,7 +189,7 @@ threshold and AGC mode.
 The Settings tab lets you control the less slice specific aspects of
 Slice Master.  
 
-![Settings](screenshots/settings-0-9-19.PNG)
+![Settings](screenshots/settings-0-9-21.PNG)
 
 Enable the aggregation server if you would like a logging program or
 cluster telnet client to receive the spots found by CW Skimmer.  Your
