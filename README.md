@@ -1,5 +1,5 @@
 # Slice Master 6000
-### version 0.9.21
+### version 0.9.22
 ### Donald Beaudry (K1DBO)
 
 ------------------------------------------ 
@@ -8,13 +8,15 @@
 
 # Features
 #### Automatically configures and launches multiple third party applications
-##### CW Skimmer, GRITTY, DM780, WSJT-X,flDigi
+##### CW Skimmer, GRITTY, DM780, WSJT-X, flDigi
 #### Colors CW Skimmer spots with N1MM Logger+ multipliers
 #### Aggregates CW Skimmer and GRITTY spots into a single telnet connection
 #### Supports per slice and TX following HRD TCP client connections
 #### Supports per slice and TX following CAT over TCP client connections
 #### Synchronizes slice and panadapter attributes between slices
-#### Provides audio mixer panel with solo, mute, and level presets
+##### zoom, scale, center, frequency
+#### Provides audio mixer panel 
+##### solo, mute, agc, sidetone, monitor, and level presets
 
 
 Slice Master 6000's primary focus is on dynamically configuring and
@@ -46,15 +48,16 @@ require a formal installation.  You can run it from anywhere.  Windows
 is likely to ask you to allow a firewall exception so Slice Master can
 estabilish a network connection with CW Skimmer and with your radio.
 
-It is important to have already installed and configured CW
-Skimmer. When Slice Master needs to create a new CW Skimmer instance
-it will start with the default configuration.  If something goes wrong
-with the configuration process, you can remove the newly created
-config files.  They should be found in
+Third party programs need to be installed first and should be run at
+least once outside of Slice Master.  The configurations dont have to
+be fully functional but should include all "station information"
+needed by the program.  Slice Master will take care of the rest of the
+configuration for you.  When Slice Master needs to create a new
+instance of a third party program it will start with the programs
+default configuration.  Having your "station information" in the
+default configuration means you wont have to re-enter it each time
+Slice Master makes a new copy.
 
-C:\Users\\<your-user-name\>\AppData\Local\K1DBO\slice-master 
-
-and named Slice-A though Slice-H.
 
 # Configuration
 
@@ -64,15 +67,22 @@ to control various aspects of your slices.
 
 ## Launch
 
-![Launch](screenshots/launch-0-9-21.PNG)
+![Launch](screenshots/launch-0-9-22.PNG)
 
-The Launch tab lets you decide when/if a CW Skimmer will be launched
-for each of the slices.  If set to 'CW only', anytime the slice is
-switched into CW mode, a CW Skimmer instance will be configured for
-the slice and launched.  If set to 'When active', this will happen any
-time the slice is in use.  The 'On Click' options are useful when
-operating split and control what happens when you click on a signal in
-CW Skimmer.  'On Click' can be set to TX, active, or both.
+The Launch tab lets you decide when/if a third party application will
+be launched for each of the slices.  The launch option can be set to
+'Never', 'When active' or 'By mode'.  If set to 'When active', anytime
+the slice is active in SmartSDR, Slice Master will launch an instance
+of the application configured to work with the current slice settings.
+
+If set to 'By mode', anytime the slice is active and switched into one
+of the selected modes, Slice Master will launch an properly configured
+instance of the application.
+
+Different application allow other options to be set here too.  CW
+Skimmer, has 'On Click' options that are useful when operating split
+and control what happens when you click on a signal in CW Skimmer.
+'On Click' can be set to TX, active, or both.
 
 You can also choose to use XIT/RIT when clicking close to the current
 signal.  This will let you "listen around" while keeping your TX
