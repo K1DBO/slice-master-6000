@@ -11,7 +11,7 @@
 + CW Skimmer, GRITTY, DM780, WSJT-X, flDigi
 #### Overlays bandmap on pop-out panafalls
 + displays spot data from CW Skimmer, GRITTY, WSJT-X, N1MM Logger+,
-  telnet clusters, CCuser, and SpotCollector
+  telnet clusters, CCuser, SpotCollector, and HRD Logbook
 #### Colors CW Skimmer spots with N1MM Logger+ multipliers
 #### Aggregates CW Skimmer, GRITTY, and WSJT-X spots into a single telnet connection
 #### Supports per slice and TX following HRD TCP client connections
