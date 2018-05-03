@@ -1,5 +1,5 @@
 # Slice Master 6000
-### version 0.10.1
+### version 0.10.2
 ### Donald Beaudry (K1DBO)
 
 ------------------------------------------ 
@@ -411,22 +411,47 @@ your call sign.  I also use telnet://k1dbo@daphne:7301?sh/dx
 to connect to a CCUser instance running on a local computer.
 
 If you use DXLabs SpotCollector, enable its web server and give
-dxlab://localhost/spots a try.
+
+dxlab://localhost/spots
+
+a try.  The colors used in the bandmap are defined in Spot Collector.
+
+If you are an HRD Logbook user, you'll get even more data about your
+spots by specifying
+
+hrdlog://localhost
+
+HRD Logbook is a bit different from the others.  It doesnt supply
+spots.  Instead, however, it will "color" the spots from other sources
+both internal and external.  If the spot shows up in the bandmap with
+green text, it's a new country.  If red, it's a new country for the
+band. And, if blue, it's a new QSO for the band.  Gray text will let
+you know you've already worked that callsign on the current band.
+
 
 ![Bandmap Overlay](screenshots/bandmap-0-10-1.PNG)
 
-First, a slice must be chosen.  By default, the chosen slice is the
-active slice, the one decorated with the yellow triangle in SmartSDR.
-But, you can choose any slice even the TX slice or a slice in a
-different panafall instead.
+Double clicking on a spot in the bandmap will move a slice to that
+spot.  But first, a slice must be chosen.  By default, the chosen
+slice is the active slice. In SmartSDR, it's the one decorated with
+the yellow triangle.  In the bandmap menu, the active slice is marked
+with an '@'. But you can choose any slice to control, even the TX
+slice or a slice in a different panafall.
 
-Double click a spot to make the selection.  A single click will
-display additional information about the spot.
+The check boxes in the bandmap menu bar will determine what happens
+when you double click a spot.  A single click will simply display
+additional information about the spot.
 
-Overlaying a window on top of another is tricky business.  You should
-expect to see some minor issues.  The most common is that the bandmap
-will lose track of its panafall.  This is easily corrected by grabbing
-the the SM6K button and dragging on top of the panafall.
+In case you need to get them out of the way, the small round button on
+the right side of the menubar will hide and show the spots.
+
+Note that overlaying a window on top of another is tricky business.
+You should expect to see some minor issues.  The most common is that
+the bandmap will lose track of its panafall.  This is easily corrected
+by grabbing the the SM6K button in the bandmap's menu bar and dragging
+on top of the panafall.  Slice Master will re-discover the panfall and
+re-populate it with spots.  
+
 
 
 ### Telnet
