@@ -1,5 +1,5 @@
 # Slice Master 6000
-### version 0.10.2
+### version 0.10.3
 ### Donald Beaudry (K1DBO)
 
 ------------------------------------------ 
@@ -251,6 +251,7 @@ name for the new configuration and press enter.
 For DM780 to launch, the slice must have a DAX audio channel selected
 and that channel must be enabled in the SmartSDR DAX Control Panel.
 
+
 ## Sync
 
 The Sync tab lets you choose how slices interact with each other and
@@ -381,7 +382,7 @@ Slice Master 6000.
 
 ### Bandmap
 
-![Bandmap Settings](screenshots/settings-bandmap-0-10-1.PNG)
+![Bandmap Settings](screenshots/settings-bandmap-0-10-3.PNG)
 
 The bandmap panel controls the visibilty of the bandmap as well as its
 content.  With the 'Enable Overlays' option selected, Slice Master
@@ -390,6 +391,9 @@ When it finds one, it will attach a menu bar to the title bar of the
 panafall and start displaying spots on top of the panafall.  The items
 in the title bar contol what happens when spot is selected on the
 panafall.
+
+
+#### Spot sources
 
 Slice Master 6000 supports three different kinds of spot data sources.
 The programs that Slice Master 6000 knows how to manage and can
@@ -408,7 +412,7 @@ required, though the &lt;port&gt; is often needed too.
 
 So, telnet://XXXX@ve7cc.net will get you started (replace XXXX with
 your call sign.  I also use telnet://k1dbo@daphne:7301?sh/dx
-to connect to a CCUser instance running on a local computer.
+to connect to a CC User instance running on a near by computer.
 
 If you use DXLabs SpotCollector, enable its web server and give
 
@@ -428,6 +432,9 @@ green text, it's a new country.  If red, it's a new country for the
 band. And, if blue, it's a new QSO for the band.  Gray text will let
 you know you've already worked that callsign on the current band.
 
+Note that you dont need to add telnet connections to your CW Skimmers
+if they are launched by Slice Master 6000.
+
 
 ![Bandmap Overlay](screenshots/bandmap-0-10-1.PNG)
 
@@ -442,16 +449,35 @@ The check boxes in the bandmap menu bar will determine what happens
 when you double click a spot.  A single click will simply display
 additional information about the spot.
 
+The SM6K label can be thought of as a handle on the bandmap overlay.
+It's useful to know this in case the bandmap becomes disassociated
+with the panafall or becomes associated with the wrong panafall.  If
+you notice things are odd, you have two choices.  Either disable then
+enable the overlays, or just grab the lost SM6K label and drag it on
+top of the panafall.  Slice Master will then re-associate them.  Note
+this hardly every happens but contesters might be interested in the
+quickest way to get back in sync.
+
+The combo box will let you choose which slice will be affected when a
+spot from that band map is double-clicked.  The slices are labeled as
+expected A-H.  So if you choose A then double-click a spot, slice A
+will change frequency to the frequency of the spot.  If the "TX" check
+box is checked, slice A will also become the TX slice.  If the
+"Select" check box is checked, slice A will also become the selected
+slice (yellow triangle in SSDR).  If the "Mode" check box is checked,
+the mode of slice A will be changed to the mode indicated by the spot.
+
+There are two special entries in the slice selection combo-box: '@'
+and 'TX'.  When '@' is the chosen slice, the actions I described above
+will affect the slice that is currently selected in SSDR.  Likewise,
+when 'TX' is the chosen slice, the actions described above will affect
+SSDR's TX slice.
+
 In case you need to get them out of the way, the small round button on
 the right side of the menubar will hide and show the spots.
 
 Note that overlaying a window on top of another is tricky business.
-You should expect to see some minor issues.  The most common is that
-the bandmap will lose track of its panafall.  This is easily corrected
-by grabbing the the SM6K button in the bandmap's menu bar and dragging
-on top of the panafall.  Slice Master will re-discover the panfall and
-re-populate it with spots.  
-
+You should expect to see some minor issues.
 
 
 ### Telnet
@@ -470,7 +496,7 @@ telnet connection, like those from WSJT-X.
 
 ### N1MM Logger+
 
-![N1MM Logger+ Settings](screenshots/settings-n1mm-0-10-1.PNG)
+![N1MM Logger+ Settings](screenshots/settings-n1mm-0-10-3.PNG)
 
 N1MM Logger+ users can broadcast their multipliers to Slice Master
 6000.  Slice Master 6000's default is to listen on N1MM's default
