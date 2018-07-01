@@ -1,5 +1,5 @@
 # Slice Master 6000
-### version 0.10.4
+### version 0.10.5
 ### Donald Beaudry (K1DBO)
 
 ------------------------------------------ 
@@ -11,7 +11,7 @@
 + CW Skimmer, GRITTY, DM780, WSJT-X, flDigi
 #### Overlays bandmap on pop-out panafalls
 + displays spot data from CW Skimmer, GRITTY, WSJT-X, N1MM Logger+,
-  telnet clusters, CCuser, SpotCollector, and HRD Logbook
+  telnet clusters, CCuser, SpotCollector, HRD Logbook, and Logger32
 #### Colors CW Skimmer spots with N1MM Logger+ multipliers
 #### Aggregates CW Skimmer, GRITTY, and WSJT-X spots into a single telnet connection
 #### Supports per slice and TX following HRD TCP client connections
@@ -414,11 +414,13 @@ So, telnet://XXXX@ve7cc.net will get you started (replace XXXX with
 your call sign.  I also use telnet://k1dbo@daphne:7301?sh/dx
 to connect to a CC User instance running on a near by computer.
 
-If you use DXLabs SpotCollector, enable its web server and give
+If you use DXLabs SpotCollector, give
 
 dxlab://localhost/spots
 
 a try.  The colors used in the bandmap are defined in Spot Collector.
+If Spot Collector is not running on the local computer, you must
+enable its web server.
 
 If you are an HRD Logbook user, you'll get even more data about your
 spots by specifying
@@ -503,6 +505,11 @@ N1MM Logger+ users can broadcast their multipliers to Slice Master
 broadcast port 12060. You'll just need to enable the broadcasts in the
 N1MM Logger+ Configurer dialog.  See the N1MM Logger+ documentation
 for more information.
+
+Note that option will accept packets from any program that sends
+packets in N1MM+ broadcast format.  Logger32 is not only capable of
+sending N1MM+ style broadcast packets, it also includes additional
+color information.
 
 
 ![Mixer Settings](screenshots/settings-mixer-0-10-1.PNG)
