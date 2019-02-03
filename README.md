@@ -1,71 +1,87 @@
 # Slice Master 6000
-### version 0.10.5
+### version 0.10.6
 ### Donald Beaudry (K1DBO)
 
 ------------------------------------------ 
 
 #### Take control of your Flex 6000 series radio's slice receivers with Slice Master 6000.
 
+
 # Features
-#### Automatically configures and launches multiple third party applications
-+ CW Skimmer, GRITTY, DM780, WSJT-X, flDigi
+#### Configures and launches multiple third party applications automatically
++ CW Skimmer, GRITTY, DM780, WSJT-X, flDigi, JTDX
+
 #### Overlays bandmap on pop-out panafalls
-+ displays spot data from CW Skimmer, GRITTY, WSJT-X, N1MM Logger+,
++ displays spot data from CW Skimmer, GRITTY, WSJT-X, JTDX, N1MM Logger+,
   telnet clusters, CCuser, SpotCollector, HRD Logbook, and Logger32
-#### Colors CW Skimmer spots with N1MM Logger+ multipliers
-#### Aggregates CW Skimmer, GRITTY, and WSJT-X spots into a single telnet connection
+
+#### Colors spots with N1MM Logger+ multipliers, or "needed status" from
++ SpotCollector, HRD Logbook, Logger32
+
+#### Aggregates CW Skimmer, GRITTY, WSJT-X and JTDX spots into a single telnet connection
+
 #### Supports per slice and TX following HRD TCP client connections
+
 #### Supports per slice and TX following CAT over TCP client connections
+
 #### Synchronizes slice and panadapter attributes between slices
 + zoom, scale, center, frequency
+
 #### Provides audio mixer panel 
 + solo, mute, agc, sidetone, monitor, and level presets
 
+------------------------------------------ 
+
+#
+# Introduction
 
 Slice Master 6000's primary focus is on dynamically configuring and
-launching other third party programs to work with the slice receivers
-in your radio.  A program instance can be launched for any active
-slice so long as its panadapter is assoicated with the necessary
-resources.  Two way communication between Slice Master 6000 and the
-programs it launches is maintained.  Clicking on a signal in CW
-Skimmer, for example, will cause the associated slice receiver to
-change frequency.  Likewise, changing the frequency of a slice
-receiver will cause the associated CW Skimmer to follow along.
+launching third party programs to work with the slice receivers in
+your radio.  A program instance can be launched for any active slice
+so long as its panadapter is assoicated with the necessary resources.
+Two way communication between Slice Master 6000 and the programs it
+launches is maintained.  Clicking on a signal in CW Skimmer, for
+example, will cause the associated slice receiver to change frequency.
+Likewise, changing the frequency of a slice receiver will cause the
+associated CW Skimmer to follow along.
 
 Slice Master 6000 is not just for managing other third party programs.
 Its powerful slice and panadapter synchronization features, and its
 convienient audio mixer panel make it useful when used alone.  Even
-when Slice Master 6000 does not control the third party program, its HRD
-TCP listener provides Flex specific functionality to HRD clients that
-cannot be found anywhere else.
+when Slice Master 6000 does not control the third party program, its
+HRD TCP listener provides Flex specific functionality to HRD clients
+that cannot be found anywhere else.
 
-Slice Master 6000's bandmap can display spot data inside of a Smart
-SDR pop-out panafall window.  The spot data displayed in the bandmap
-comes from many sources.  Internally launched applications have their
-spot data aggregrated and presented to external loggers via the
-built-in telnet aggregration server. This data is also available for
-display in the bandmap.  The Slice Master 6000 bandmap can also be
-configured to aquire spot data from external sources.  Telnet cluster,
-N1MM Logger+, and DXLab's Spot Collector are all supported.
+The Slice Master 6000 bandmap can display spot data inside of a Smart
+SDR panafall.  The spot data comes from many sources.  Internally
+launched applications have their spot data aggregrated and presented
+to external loggers via the built-in telnet aggregration server. This
+data is also available for display in the bandmap.  The Slice Master
+6000 bandmap can also be configured to aquire spot data from external
+sources.  Telnet cluster, N1MM Logger+, and DXLab's Spot Collector are
+all supported.
 
 
 # Getting Started
 
 The current version of this README can be viewed at
 
-https://github.com/K1DBO/slice-master-6000
+```
+    https://github.com/K1DBO/slice-master-6000
+```
 
 and the latest release can be downloaded from
 
-https://github.com/K1DBO/slice-master-6000/releases 
+```
+    https://github.com/K1DBO/slice-master-6000/releases
+```
 
-Just download, open the zip file, and extract the contents to a
-convienient place.  The executable is all you'll need and doesn't
-require a formal installation or escalated privileges to run or
-install.  You can run Slice Master 6000 from any folder.  Windows is
-likely to ask you to allow a firewall exception so Slice Master 6000
-can estabilish a network connections with your third party programs
-and your radio.
+Download, open the zip file, and extract the contents to a convienient
+place.  The executable is all you'll need and doesn't require a formal
+installation or escalated privileges to run or install.  You can run
+Slice Master 6000 from any folder.  Windows is likely to ask you to
+allow a firewall exception so Slice Master 6000 can estabilish network
+connections with your third party programs and your radio.
 
 Third party programs should be run at least once outside of Slice
 Master 6000.  Their configurations dont have to be fully functional
@@ -80,13 +96,12 @@ Slice Master 6000 makes a new copy.
 
 # Configuration
 
-Once running Slice Master 6000 will present you with a collection of tabs
-to control various aspects of your slices.  
-
+Once running, Slice Master 6000 will present you with a collection of
+tabs to control various aspects of your slices.
 
 ## Launch
 
-![Launch](screenshots/launch-0-9-22.PNG)
+![Launch](screenshots/launch-0-10-6.PNG)
 
 A primary goal of Slice Master 6000 is to configure and launch third
 party applications to work with your Flex Signature series radio.  In
@@ -96,26 +111,34 @@ launches a program for you, it take care of selecting the rig type and
 audio devices.  You only need to make sure that your slice in SmartSDR
 is set correctly for the application.  This usually means selecting an
 appropriate mode and chosing a DAX device.  If something doesnt look
-right, Slice Master 6000 will display a helpful message in it the
+right, Slice Master 6000 will display a helpful message in its
 status area.
 
 The Launch tab lets you decide when/if a third party application will
 be launched for each of the slices.  The launch option can be set to
 'Never', 'When active' or 'By mode'.  If set to 'When active', anytime
-the slice is active in SmartSDR, Slice Master 6000 will launch an instance
-of the application configured to work with the current slice settings.
-If set to 'By mode', anytime the slice is active and switched into one
-of the selected modes, Slice Master 6000 will launch a properly
-configured instance of the application.
+the slice is active in SmartSDR, Slice Master 6000 will launch an
+instance of the application configured to work with the current slice
+settings.  If set to 'By mode', anytime the slice is active and
+switched into one of the selected modes, Slice Master 6000 will launch
+a properly configured instance of the application.
 
-Dont worry if your list of application doesnt match what you see here.
-Slice Master 6000 will not present launch options for programs that
-are not installed on your computer.
+The column of buttons to the left of the launch settings are "quick
+launch" buttons.  Selecting a quick launch button instantly sets the
+launch option for the application to "When active".  This in turn
+will cause the application start.  
+
+Dont worry if your list of applications doesnt match what you see
+here.  Slice Master 6000 will not present launch options for programs
+that are not installed on your computer.  But this also means that
+Slice Master will not display launch options for programs that it
+cannot find.  If you have any of these programs in a non-default
+folder, you'll have to edit Slice Master 6000's config.ini file.
 
 
 ### CW Skimmer
 
-![CW Skimmer Launch](screenshots/launch-cwskimmer-0-10-1.PNG)
+![CW Skimmer Launch](screenshots/launch-cwskimmer-0-10-6.PNG)
 
 Slice Master 6000 can configure and launch CW Skimmer for you.  With
 the exeception of adjusting personal preferences, there's no need to
@@ -166,7 +189,7 @@ aggregration server.
 
 ### GRITTY
 
-![GRITTY Launch](screenshots/launch-gritty-0-10-1.PNG)
+![GRITTY Launch](screenshots/launch-gritty-0-10-6.PNG)
 
 GRITTY, has two 'On Click' options.  They are used to control what
 happens when a click is made inside the GRITTY window.  If the
@@ -187,7 +210,7 @@ is very similar to the settings panel for CW Skimmer.
 
 ### Ham Radio Deluxe's DM780
 
-![DM780 Launch](screenshots/launch-dm780-0-10-1.PNG)
+![DM780 Launch](screenshots/launch-dm780-0-10-6.PNG)
 
 DM780 can be launched automatically depending on mode or whenever a
 slice is active.  If you are currently using DM780 identities to
@@ -198,13 +221,22 @@ operating mode.  Having a seperate one for each or similar digimodes
 will minimize the amount mode specific manual reconfiguration you'll
 need to do each time Slice Master 6000 launches DM780.
 
+New Identities can be created from DM780's File/Identities Menu.  All
+new identities are available for use from Slice Master 6000.  Note,
+however, that the identity must be selected manually from DM780 at
+least one for it to finish creating it.  Slice Master will not be able
+to configure an Identity that has not be selected manually at least
+once.
+
 For DM780 to launch, the slice must have a DAX audio channel selected
 and that channel must be enabled in the SmartSDR DAX Control Panel.
 
 
+
+
 ### WSJT-X 
 
-![WSJT-X Launch](screenshots/launch-wsjtx-0-10-1.PNG)
+![WSJT-X Launch](screenshots/launch-wsjtx-0-10-6.PNG)
 
 WSJT-X supports multiple settings folders.  To run multiple instances
 of WSJT-X, it's necessary to choose a different settings folder for
@@ -237,6 +269,35 @@ provides the 'Append slice label to spotter's call sign' option as
 well as basic spot filtering.  See the section on CW Skimmer for a
 more detailed description of these options.
 
+
+### JTDX
+
+![JTDX Launch](screenshots/launch-jtdx-0-10-6.PNG)
+
+JTDX supports multiple settings folders.  To run multiple instances
+of JTDX, it's necessary to choose a different settings folder for
+each instance.  By default, Slice Master 6000 provices a settings
+folder for each slice. But, creating new ones is easy enough if you
+have the need.  Select the &lt;new&gt; settings from the drop down menu and
+change the name to anything you like.  Be sure to press the enter key
+when you are done naming your new settings folder.
+
+Aside from personal preferences and changing operating modes, you
+should not need to adjust the settings in the JTDX setting dialog.
+If you do take a look there, you might be surprised to find that the
+Rig has been set to 'Ham Radio Deluxe'.  This is the correct setting.
+The Network Server specified belongs to Slice Master.  There is no
+need to change these settings.
+
+For JTDX to launch, the slice must have a DAX audio channel selected
+and that channel must be enabled in the SmartSDR DAX Control Panel.
+
+![JTDX Settings](screenshots/settings-jtdx-0-10-6.PNG)
+
+Since JTDX is also a source of spot data, its settings panel
+provides the 'Append slice label to spotter's call sign' option as
+well as basic spot filtering.  See the section on CW Skimmer for a
+more detailed description of these options.
 
 ### FlDigi
 
@@ -287,7 +348,7 @@ to follow the vertical scale of the followed slice.
 Selecting 'Keep centered' will cause the slice's panadapter to be
 recentered under the slice frequency.
 
-### HRD TCP TX Listener
+### HRD TCP Listener
 
 ![HRD Sync](screenshots/sync-hrd-tcp-0-10-1.PNG)
 
@@ -321,7 +382,7 @@ If you have ever wished HRD Logbook would support more that once
 slice, this might be the feature you've been looking for.
 
 
-### TCP CAT TX Listener
+### TCP CAT Listener
 
 ![TCP CAT Sync](screenshots/sync-cat-tcp-0-10-1.PNG)
 
@@ -355,15 +416,21 @@ The Mix tab gives you a convenient place to control the audio output
 settings of all your slices.  The vertical slider will adjust the
 audio gain, while the knob adjusts the pan.  The button between them
 shows the current audio gain and can be activated to reset the gain
-and pan to a preset value.  The 'M' button will mute the slice while
-the 'S', solo, button mute all other slices.
+and pan to their preset values.  The 'M', mute, button will mute the
+slice while the 'S', solo, button mutes all other slices.
 
-If you hold the shift key while clicking on the gain preset button,
-instead of returning the gain to the preset value, the preset values
-will be changed to the current values.  So the next time you activate
-the button, the gain and pan will be restored to the current values.
+If you hold the &lt;shift&gt; key while selecting the gain preset button,
+instead of returning the gain and pan to their preset values, the
+current values will be saved as the presets.  So the next time you
+select the button, the gain and pan will be restored to these saved
+values.
 
-The Mix section of the settings page allows the mixer to be
+The solo button can also be used to form a solo group. When holding
+the &lt;Ctrl&gt; key while selecting the 'S' button, the slice will be added
+to the solo group.  This is an easy way to mute everything except the
+selected slices.
+
+The Mixer section of the settings page allows the mixer to be
 customized.  If you'd like to hide inactive slices or enable AGC
 adjustments, select the corresponding options there.
 
@@ -382,7 +449,7 @@ Slice Master 6000.
 
 ### Bandmap
 
-![Bandmap Settings](screenshots/settings-bandmap-0-10-3.PNG)
+![Bandmap Settings](screenshots/settings-bandmap-0-10-6.PNG)
 
 The bandmap panel controls the visibilty of the bandmap as well as its
 content.  With the 'Enable Overlays' option selected, Slice Master
@@ -392,6 +459,12 @@ panafall and start displaying spots on top of the panafall.  The items
 in the title bar contol what happens when spot is selected on the
 panafall.
 
+The term "internal spots" refer to spots generated by the programs
+that Slice Master 6000 has launched.  Sometimes not displaying these
+spots works out better.  If, for example, one of your external Spot
+Sources connects to Slice Master 6000's telnet server then filters and
+returns the spots to Slice Master, disabeling the display of internal
+spots might be useful.
 
 #### Spot sources
 
@@ -405,7 +478,9 @@ spots are sent to the aggregation server.  For telnet clusters, enter
 the URI for your favorite cluster.  Follow this pattern to construct
 the URI:
 
-telnet://&lt;callsign&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;?&lt;initial command&gt;
+```
+    telnet://<callsign>:<password>@<host>:<port>?<initial command>
+```
 
 The angle bracket denote the different fields.  Only the &lt;host&gt; is
 required, though the &lt;port&gt; is often needed too.
@@ -416,16 +491,32 @@ to connect to a CC User instance running on a near by computer.
 
 If you use DXLabs SpotCollector, give
 
-dxlab://localhost/spots
+```
+    dxlab://localhost/spots
+```
 
 a try.  The colors used in the bandmap are defined in Spot Collector.
 If Spot Collector is not running on the local computer, you must
 enable its web server.
 
+DX Summit provides spots though a web interface.  Slice Master can
+read this web interface to populate the bandmap. Use
+
+```
+    dxsmt://dxsummit.fi
+```
+
+filter parameters can also be passed much like on the web.  Use your
+browser to build a filter then cut and paste the URL into one of Slice
+Master's spot sources.  Replace the 'http' with 'dxsmt' and enable
+source.
+
 If you are an HRD Logbook user, you'll get even more data about your
 spots by specifying
 
-hrdlog://localhost
+```
+    hrdlog://localhost
+```
 
 HRD Logbook is a bit different from the others.  It doesnt supply
 spots.  Instead, however, it will "color" the spots from other sources
@@ -498,7 +589,7 @@ telnet connection, like those from WSJT-X.
 
 ### N1MM Logger+
 
-![N1MM Logger+ Settings](screenshots/settings-n1mm-0-10-3.PNG)
+![N1MM Logger+ Settings](screenshots/settings-n1mm-0-10-6.PNG)
 
 N1MM Logger+ users can broadcast their multipliers to Slice Master
 6000.  Slice Master 6000's default is to listen on N1MM's default
@@ -511,8 +602,12 @@ packets in N1MM+ broadcast format.  Logger32 is not only capable of
 sending N1MM+ style broadcast packets, it also includes additional
 color information.
 
+Slice Master 6000 can also keep your active slice or TX slice in sync with
+with the "focus" radio in N1MM+.  
 
-![Mixer Settings](screenshots/settings-mixer-0-10-1.PNG)
+
+### Mixer
+![Mixer Settings](screenshots/settings-mixer-0-10-6.PNG)
 
 The Mixer section of the settings tab lets you control the visibilty
 of the master volume control and the headphone volume control.  Note
@@ -522,6 +617,84 @@ SmartSDR as it hands over control to the local computer. Controls for
 inactive slices can be hidden and additional controls adjusting AGC
 parameters and be enabled.
 
+The Mixer is also able to dynamically adjust to your operating
+settings.  If you are only interesting hearing the audio from either
+(or both) the selected slice and the TX slice, checking the
+corresponding 'solo' option will enable the feature.  
+
+
+### Operator
+![Operator Settings](screenshots/settings-operator-0-10-6.PNG)
+
+The Operator section of the settings tab let you describe your
+station.  Many third party applications require this information.  If
+you provide it here, Slice Master 6000 will set it for you in the
+configurations of the programs it launches.
+
+
+# Start Up Options
+
+When starting Slice Master 6000 from a cmd window or a shortcut
+options can be specified to customize behavior.  For normal operation
+options are usually not needed.  When they are, specifying them once
+will is all that is necessary.  Except for the log options, the
+configuration changes requested by the options are persistent.
+
+```
+  --log-level LOG_LEVEL [LOG_LEVEL ...]
+  	 additional logging options
+
+  --log-preset PRESET   
+  	 select a logging preset from the config file
+
+  --window-width WIDTH  
+  	 width in pixels of main window
+
+  --window-height HEIGHT
+  	 height in pixels of main window
+
+  --window-x X
+         x position of main window
+
+  --window-y Y
+         y position of main window
+
+  --window-minimized BOOL
+         start main window minimized
+
+  --bandmap-text-scale SCALE
+         scale factor (percent) for callsigns in the bandmap
+         overlay
+
+  --bandmap-persistence MINUTES
+         spot will be removed from the bandmap after MINUTES
+         from the last update
+
+  --bandmap-stick-color COLOR
+         change the COLOR of the stick for all spots
+
+  --bandmap-max-sources MAX
+         maximum number of spot source (10 or fewer)
+
+  --fix-truncated-win10-audio-device-names BOOL
+         fix truncated audio device names on Win10
+
+  --skimmer-launch-delay DELAY
+         time in seconds to wait between launching CW Skimmer
+         instances
+
+  --skimmer-connect-delay DELAY
+         time in seconds to wait before connecting to a CW
+         Skimmer instance
+
+  --radio-filter FILTER
+         FILTER is a string to choose amoung multiple radios
+         at start up.  Like filter.txt.
+
+  --radio RADIO
+         IP Address of the radio to connect to.  For
+         use on a routed VPN only.
+```
 
 # Trouble Shooting
 
@@ -549,4 +722,58 @@ Sometimes you really do need to reboot everything.  If everything
 seems to be working correctly but CW Skimmer launches with the wrong
 'Signal I/O Device' in its settings, first try restarting the DAX
 Control Panel.  But if that doesnt fix it, reboot.
+
+## &lt;no connection&gt;
+
+If Slice Master 6000 cannot connect to your radio, it's probably a
+firewall configuration issue.  The first time you run Slice Master
+6000, Windows will ask you to grant Slice Master permission to use
+your network.  If you decline, Slice Master wont be able to connect to
+your radio.
+
+Slice Master does not yet support Flex's Smart Link protocol.  This
+means that the computer runnning Slice Master and your radio have to
+be on the same network.  If they are not on the same network, Slice
+Master will display the &lt;no connection&gt; message.
+
+## Missing features
+
+Slice Master 6000 populates its list of Launch options by looking at
+your computer to see which supported programs are installed.  If you
+have installed a supported program anywhere other than its default
+install location, Slice Master 6000 will not be able to find it and
+will not show the launch options for it.
+
+You can fix this problem by manually editing Slice Master 6000's
+`config.ini` to indicate the actual location of the supported program.
+The config.ini file is located in
+
+```
+    C:\Users\<your user name>\AppData\Local\K1DBO\slice-master
+```
+
+Notepad or any other plain text editor should work find.  
+
+# Support
+
+Bug reports are both welcome and encouraged.  Please send all reports
+to SliceMaster@K1DBO.com.  To get a bit ahead of the game please make
+sure you have the latest version of Slice Master 6000 from 
+
+```
+    https://github.com/K1DBO/slice-master-6000/releases 
+```
+
+and reboot both your computer and your radio then confirm the problem
+still exists.  Sending a zip file of your Slice Master log files along
+with the report can save time.  Just navigate to
+
+```
+    C:\Users\<your user name>\AppData\Local\K1DBO
+```
+
+then right-click on slice-master and select 'Send to\Compressed
+(zipped) folder'.  This will create a zip file that you can then
+attach to your email.
+
 
