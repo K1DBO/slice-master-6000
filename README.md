@@ -1,5 +1,5 @@
 # Slice Master 6000
-### version 0.10.6
+### version 0.10.7
 ### Donald Beaudry (K1DBO)
 
 ------------------------------------------ 
@@ -694,6 +694,9 @@ configuration changes requested by the options are persistent.
   --radio RADIO
          IP Address of the radio to connect to.  For
          use on a routed VPN only.
+
+  --station STATION
+  	 Name of Multi-Flex station to bind to.
 ```
 
 # Trouble Shooting
