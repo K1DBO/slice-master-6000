@@ -9,7 +9,7 @@
 
 # Features
 #### Configures and launches multiple third party applications automatically
-v+ CW Skimmer, GRITTY, DM780, WSJT-X, flDigi, JTDX, JS8Call
++ CW Skimmer, GRITTY, DM780, WSJT-X, flDigi, JTDX, JS8Call
 
 #### Overlays bandmap on pop-out panafalls
 + displays spot data from CW Skimmer, GRITTY, WSJT-X, JTDX, JS8Call, N1MM Logger+,
