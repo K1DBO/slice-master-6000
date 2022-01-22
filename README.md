@@ -1,5 +1,5 @@
 # Slice Master 6000
-### version 0.10.7
+### version 0.10.8
 ### Donald Beaudry (K1DBO)
 
 ------------------------------------------ 
@@ -9,16 +9,16 @@
 
 # Features
 #### Configures and launches multiple third party applications automatically
-+ CW Skimmer, GRITTY, DM780, WSJT-X, flDigi, JTDX
+v+ CW Skimmer, GRITTY, DM780, WSJT-X, flDigi, JTDX, JS8Call
 
 #### Overlays bandmap on pop-out panafalls
-+ displays spot data from CW Skimmer, GRITTY, WSJT-X, JTDX, N1MM Logger+,
++ displays spot data from CW Skimmer, GRITTY, WSJT-X, JTDX, JS8Call, N1MM Logger+,
   telnet clusters, CCuser, SpotCollector, HRD Logbook, and Logger32
 
 #### Colors spots with N1MM Logger+ multipliers, or "needed status" from
 + SpotCollector, HRD Logbook, Logger32
 
-#### Aggregates CW Skimmer, GRITTY, WSJT-X and JTDX spots into a single telnet connection
+#### Aggregates CW Skimmer, GRITTY, WSJT-X, JTDX, JS8Call spots into a single telnet connection
 
 #### Supports per slice and TX following HRD TCP client connections
 
@@ -292,9 +292,38 @@ need to change these settings.
 For JTDX to launch, the slice must have a DAX audio channel selected
 and that channel must be enabled in the SmartSDR DAX Control Panel.
 
-![JTDX Settings](screenshots/settings-jtdx-0-10-6.PNG)
+![JTDX Settings](screenshots/settings-jtdx-0-10-8.PNG)
 
 Since JTDX is also a source of spot data, its settings panel
+provides the 'Append slice label to spotter's call sign' option as
+well as basic spot filtering.  See the section on CW Skimmer for a
+more detailed description of these options.
+
+### JS8Call
+
+![JS8Call Launch](screenshots/launch-js8call-0-10-8.PNG)
+
+JS8Call supports multiple settings folders.  To run multiple instances
+of JS8Call, it's necessary to choose a different settings folder for
+each instance.  By default, Slice Master 6000 provices a settings
+folder for each slice. But, creating new ones is easy enough if you
+have the need.  Select the &lt;new&gt; settings from the drop down menu and
+change the name to anything you like.  Be sure to press the enter key
+when you are done naming your new settings folder.
+
+Aside from personal preferences and changing operating modes, you
+should not need to adjust the settings in the JS8Call setting dialog.
+If you do take a look there, you might be surprised to find that the
+Rig has been set to 'Ham Radio Deluxe'.  This is the correct setting.
+The Network Server specified belongs to Slice Master.  There is no
+need to change these settings.
+
+For JS8Call to launch, the slice must have a DAX audio channel selected
+and that channel must be enabled in the SmartSDR DAX Control Panel.
+
+![JS8Call Settings](screenshots/settings-js8call-0-10-8.PNG)
+
+Since JS8Call is also a source of spot data, its settings panel
 provides the 'Append slice label to spotter's call sign' option as
 well as basic spot filtering.  See the section on CW Skimmer for a
 more detailed description of these options.
@@ -511,6 +540,14 @@ browser to build a filter then cut and paste the URL into one of Slice
 Master's spot sources.  Replace the 'http' with 'dxsmt' and enable
 source.
 
+Simple Parks on the Air spot source.
+
+```
+    pota://api.pota.app
+```
+
+no additional options are supported.
+
 If you are an HRD Logbook user, you'll get even more data about your
 spots by specifying
 
@@ -623,13 +660,114 @@ settings.  If you are only interesting hearing the audio from either
 corresponding 'solo' option will enable the feature.  
 
 
+### Status Broadcast
+![Status Broadcast Settings](screenshots/settings-broadcast-0-10-8.PNG)
+
+The Status Broadcast section of the settings tab provides a means to
+broadcast information to other programs or services.  Similar to spot
+sources, these broadcasts are specified with a URI
+
+```
+    <protocol>://<login>:<password>@<host>:<port>?<conditions>
+```
+
+Generally speaking, the <protocol> specifies the format of the
+broadcast message and thus its intended target.  Unlike the <host> and
+<port>, components of the URL, the <login> and <password> are rarely
+needed.  The <conditions> tend to specify the what and when of the
+broadcasts.
+
+The following protocols:
+- kpa500
+- kat500
+- hfauto
+- radioinfo, and
+- meter
+
+and the following conditions:
+- state = TX, ACTIVE
+- tx_ant = ANT1, ANT2, XVTR
+- rx_ant = ANT1, ANT2, RX_A, RX_B, XVTR
+- slice =  A, B, C, D, E, F, G, H, ACTIVE, TX
+- band = 160m, 80m, 40m, 30m, 20m, 17m, 15m, 12m, 10m, 6m, 2m
+
+are supported.
+
+If multiple commands are specified they must be seperated with an ampersand and conditions must be met.  If
+multiple values for a command are specified, only one value must match.
+
+
+#### kpa500://
+The kpa500 protocol is designed to work with Elecraft's KPA500 Remote
+Program.  Note that this is not the same as Elecraft's KPA500 Utility.  
+
+![KPA500 Remote Settings](screenshots/elecraft-kpa500-remote-settings-0-10-8.PNG)
+
+The port, username, and password in the broadcast URI must all match
+the settings in the KPA500 Remote Program and, of course, the remote
+program must be running.
+
+Two conditions of interest are supported:
+    - tx_ant=<antenna>
+and
+    - auto_standby=on
+
+The 'tx_ant' command lets you specify which Flex antenna port is
+conencted to your KPA500.  Whenever a slice is set to transmit on that
+antenna port, Slice Master 6000 will insure that the KPA500 is set to the
+correct band for that slice.
+
+If the 'auto_standby' condition is set, Slice Master 6000 will automatically
+switch the KPA500 between Operate and Standby modes depending on
+whether the desiginated tx_ant is the currently active TX antenna.
+
+#### kat500:// 
+The kat500 protocol is designed to work with Elecraft's KAT500 Remote
+Program.  Note that is not the same as the KAT500 Utility.
+
+![KAT500 Remote Settings](screenshots/elecraft-kat500-remote-settings-0-10-8.PNG)
+
+
+The port, username, and password in the broadcast URI must all match
+the settings in the KAT500 Remote Program and, of course, the remote
+program must be running.
+
+As with the kpa500 protocol, the 'tx_ant' command is used to associate
+the broadcasts with the antenna port conneted to the KAT 500.  Note
+that the Elecraft KAT500 Remote Program does not accept band or
+frequency data over its network connection.  So this protocol is
+"status only" for now.
+
+#### hfauto://
+The hfauto protocol is designed to work with the HF-Auto
+App from W1TR Software.
+
+Username and password are not used.  If your HF-Auto App remote
+network control configuration has not been modified, port 12020 should
+work.  The HF-Auto App provides many options for remote control
+through network broadcasts.  Please read the documentation included
+with the HF-Auto App for complete details.
+
+Set the 'tx_ant' condition to the antenna port used by your
+HF-Auto. The HF-Auto will then receive advanced notice of frequency
+changes and in most cases will already be tuned to the correct
+frequency before you transmit.
+
+#### radioinfo://
+The radioinfo protocol implements the radioinfo packets defined by
+N1MM+.  Many other programs can use these packets to stay informed
+about the current state of your Flex slices.
+
+#### meter://
+
+
 ### Operator
 ![Operator Settings](screenshots/settings-operator-0-10-6.PNG)
 
-The Operator section of the settings tab let you describe your
-station.  Many third party applications require this information.  If
-you provide it here, Slice Master 6000 will set it for you in the
-configurations of the programs it launches.
+The Operator section of the settings tab lets you describe the
+personal side of your station.  Many third party applications require
+this information.  If you provide it here, Slice Master 6000 will set
+it for you in the configurations of the programs it launches.
 
 
 # Start Up Options
@@ -688,7 +826,7 @@ configuration changes requested by the options are persistent.
          Skimmer instance
 
   --radio-filter FILTER
-         FILTER is a string to choose amoung multiple radios
+         FILTER is a string to choose among multiple radios
          at start up.  Like filter.txt.
 
   --radio RADIO
