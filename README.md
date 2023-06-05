@@ -1,5 +1,5 @@
 # Slice Master 6000
-### version 0.10.8
+### version 0.11.0
 ### Donald Beaudry (K1DBO)
 
 ------------------------------------------ 
@@ -9,16 +9,18 @@
 
 # Features
 #### Configures and launches multiple third party applications automatically
-+ CW Skimmer, GRITTY, DM780, WSJT-X, flDigi, JTDX, JS8Call
++ CW Skimmer, GRITTY, DM780, WSJT-X, flDigi, JTDX, JS8Call, MSHV, MMTTY
 
-#### Overlays bandmap on pop-out panafalls
-+ displays spot data from CW Skimmer, GRITTY, WSJT-X, JTDX, JS8Call, N1MM Logger+,
+#### Aggregates spots for display in SSDR panafalls
++ spot data collected from CW Skimmer, GRITTY, WSJT-X, JTDX, JS8Call, MSHV, N1MM Logger+,
   telnet clusters, CCuser, SpotCollector, HRD Logbook, and Logger32
+
+#### Aggregates collected spots into a single telnet connection
+
+#### Overlays bandmap onto pop-out panafalls
 
 #### Colors spots with N1MM Logger+ multipliers, or "needed status" from
 + SpotCollector, HRD Logbook, Logger32
-
-#### Aggregates CW Skimmer, GRITTY, WSJT-X, JTDX, JS8Call spots into a single telnet connection
 
 #### Supports per slice and TX following HRD TCP client connections
 
@@ -240,7 +242,7 @@ and that channel must be enabled in the SmartSDR DAX Control Panel.
 
 WSJT-X supports multiple settings folders.  To run multiple instances
 of WSJT-X, it's necessary to choose a different settings folder for
-each instance.  By default, Slice Master 6000 provices a settings
+each instance.  By default, Slice Master 6000 provides a settings
 folder for each slice. But, creating new ones is easy enough if you
 have the need.  Select the &lt;new&gt; settings from the drop down menu and
 change the name to anything you like.  Be sure to press the enter key
@@ -276,7 +278,7 @@ more detailed description of these options.
 
 JTDX supports multiple settings folders.  To run multiple instances
 of JTDX, it's necessary to choose a different settings folder for
-each instance.  By default, Slice Master 6000 provices a settings
+each instance.  By default, Slice Master 6000 provides a settings
 folder for each slice. But, creating new ones is easy enough if you
 have the need.  Select the &lt;new&gt; settings from the drop down menu and
 change the name to anything you like.  Be sure to press the enter key
@@ -295,6 +297,35 @@ and that channel must be enabled in the SmartSDR DAX Control Panel.
 ![JTDX Settings](screenshots/settings-jtdx-0-10-8.PNG)
 
 Since JTDX is also a source of spot data, its settings panel
+provides the 'Append slice label to spotter's call sign' option as
+well as basic spot filtering.  See the section on CW Skimmer for a
+more detailed description of these options.
+
+### MSHV
+
+![MSHV Launch](screenshots/launch-mshv-0-11-0.PNG)
+
+MSHV supports multiple settings folders.  To run multiple instances
+of MSHV, it's necessary to choose a different settings folder for
+each instance.  By default, Slice Master 6000 provides a settings
+folder for each slice. But, creating new ones is easy enough if you
+have the need.  Select the &lt;new&gt; settings from the drop down menu and
+change the name to anything you like.  Be sure to press the enter key
+when you are done naming your new settings folder.
+
+Aside from personal preferences and changing operating modes, you
+should not need to adjust the settings in the MSHV setting dialog.
+If you do take a look there, you might be surprised to find that the
+Rig has been set to 'Ham Radio Deluxe'.  This is the correct setting.
+The Network Server specified belongs to Slice Master.  There is no
+need to change these settings.
+
+For MSHV to launch, the slice must have a DAX audio channel selected
+and that channel must be enabled in the SmartSDR DAX Control Panel.
+
+![MSHV Settings](screenshots/settings-mshv-0-11-0.PNG)
+
+Since MSHV is also a source of spot data, its settings panel
 provides the 'Append slice label to spotter's call sign' option as
 well as basic spot filtering.  See the section on CW Skimmer for a
 more detailed description of these options.
@@ -500,7 +531,7 @@ spots might be useful.
 Slice Master 6000 supports three different kinds of spot data sources.
 The programs that Slice Master 6000 knows how to manage and can
 produce spot data are one kind.  Telnet clusters are the second, and
-specialized adapter to third party logging programs are the third.
+specialized adapters to third party logging programs are the third.
 
 Internally launched programs have their own settings to control which
 spots are sent to the aggregation server.  For telnet clusters, enter
@@ -768,6 +799,20 @@ The Operator section of the settings tab lets you describe the
 personal side of your station.  Many third party applications require
 this information.  If you provide it here, Slice Master 6000 will set
 it for you in the configurations of the programs it launches.
+
+### Radio
+![Radio Settings](screenshots/settings-radio-0-11-0.PNG)
+
+The Radio section is used to select the radio you would like to use with Slice Master.  Available radios will appear in the list to the left of the Connect button.  Once a selection has been made the Connect button is used to establish the connection.
+
+Slice Master will also check these options at start up to determine if an automatic connection should be made.  By default, Slice Master will Start with the first radio it discovers.  Optionally, it will start with the last radio to have been connected, or no connection at all.
+
+If you would like to choose a SmartLink accessible radio and havent logged into the Smartlink server, press the Login button to show the SmartLink Loging dialog box.
+
+![Radio Settings](screenshots/settings-radio-smartlink-0-11-0.PNG)
+
+Enter your SmartLink credentials and press the Login button.  When your credentials are accepted, the status will change from 'Authorization needed' to 'Connected'.
+
 
 
 # Start Up Options
