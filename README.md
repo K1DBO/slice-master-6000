@@ -336,7 +336,7 @@ more detailed description of these options.
 
 JS8Call supports multiple settings folders.  To run multiple instances
 of JS8Call, it's necessary to choose a different settings folder for
-each instance.  By default, Slice Master 6000 provices a settings
+each instance.  By default, Slice Master 6000 provides a settings
 folder for each slice. But, creating new ones is easy enough if you
 have the need.  Select the &lt;new&gt; settings from the drop down menu and
 change the name to anything you like.  Be sure to press the enter key
@@ -372,6 +372,22 @@ name for the new configuration and press enter.
 For DM780 to launch, the slice must have a DAX audio channel selected
 and that channel must be enabled in the SmartSDR DAX Control Panel.
 
+### MMTTY
+
+![MMTTY Launch](screenshots/launch-mmtty-0-11-0.PNG)
+
+MMTTY suporrts multiple instances.  Each instances must use a diferent set of settings.
+By default, Slice Master 6000 provides a settings
+folder for each slice. But, creating new ones is easy enough if you
+have the need.  Select the &lt;new&gt; settings from the drop down menu and
+change the name to anything you like.  Be sure to press the enter key
+when you are done naming your new settings folder.
+
+For MMTTY to appear on the launch menu one or more COM ports must be allocated in SSDR CAT
+for use by Slice Master 6000.  In order to launch MMTTY, at least one of these ports must 
+be available for use.
+
+See the COM Port section under Settings for more details.
 
 ## Sync
 
@@ -791,6 +807,24 @@ about the current state of your Flex slices.
 
 #### meter://
 
+### COM Ports
+![COM Port Settings](screenshots/settings-com-ports-0-11-0.PNG)
+
+Slice Master 6000 can control and automatically assign COM ports to programs that it launches which do not provide a network based rig control.  These COM ports can also be manually assigned
+to programs that Slice Master 6000 does not launch.  Thus opening Slice Master's TX following listener capability to logging programs that require a COM port for rig control.
+
+These COM ports are borrowed from SSDR CAT and need to be pre-allocated there.  A good starting point would be one COM port for each slice supported by your radio.  More if you plan to manually allocate one to a logging program.
+
+When creating a COM port for Slice Master 6000 in SSDR CAT
+the name of the port must start with 'SM6k-' and the port type must be set to Serial, as shown below.  Slice Master will ignore the rest of the SSDR CAT settings but provides additional controls here.
+
+![COM Port SSDR CAT](screenshots/settings-com-port-cat-0-11-0.PNG)
+
+Once you have created your COM ports in SSDR you must shutdown SSDR CAT and restart Slice Master.  Restarting SSDR CAT is only necessary if you are using non SM6K COM ports for other purposes.
+
+Note that Slice Master must be started before SSDR CAT for the SM6K ports to be used.
+
+
 
 ### Operator
 ![Operator Settings](screenshots/settings-operator-0-10-6.PNG)
@@ -917,10 +951,6 @@ firewall configuration issue.  The first time you run Slice Master
 your network.  If you decline, Slice Master wont be able to connect to
 your radio.
 
-Slice Master does not yet support Flex's Smart Link protocol.  This
-means that the computer runnning Slice Master and your radio have to
-be on the same network.  If they are not on the same network, Slice
-Master will display the &lt;no connection&gt; message.
 
 ## Missing features
 
